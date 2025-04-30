@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selezione Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .test-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .test-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .test-card:hover {
+            transform: translateY(-5px);
+        }
+
+        button {
+            background-color: #1877f2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .nv-logo {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        opacity: 0.3;
+        transition: opacity 0.3s;
+        width: 40px;
+        height: 40px;
+    }
+
+    .nv-logo:hover {
+        opacity: 0.6;
+    }
+
+    .nv-logo .n {
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background: #1877f2;
+        left: 0;
+    }
+
+    .nv-logo .n::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background: #1877f2;
+        left: 16px;
+    }
+
+    .nv-logo .n::before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 14px;
+        background: #1877f2;
+        left: 8px;
+        top: 0;
+        transform: rotate(45deg);
+    }
+
+    .nv-logo .v {
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background: #1877f2;
+        left: 24px;
+        transform: rotate(26deg);
+    }
+
+    .nv-logo .v::after {
+        content: '';
+        position: absolute;
+        width: 2px;
+        height: 100%;
+        background: #1877f2;
+        transform: rotate(-52deg);
+        right: 0;
+    }
+        
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Seleziona Test</h1>
+        <button onclick="logout()">Esci</button>
+    </div>
+
+    <div class="test-container">
+        <div class="test-card" onclick="window.location.href='index1.html'">
+            <h3>Digit Span Test</h3>
+            <p>Test di memoria a breve termine</p>
+        </div>
+
+        <div class="test-card" onclick="window.location.href='index2.html'">
+            <h3>Torre di Londra</h3>
+            <p>Test di pianificazione cognitiva</p>
+        </div>
+
+        <div class="test-card" onclick="window.location.href='index3.html'">
+            <h3>Trial Making Test</h3>
+            <p>Test di velocità cognitiva</p>
+        </div>
+
+        <div class="test-card" onclick="window.location.href='index4.html'">
+            <h3>Stroop Color Test</h3>
+            <p> Test di inibizione conflitto cognitivo</p>
+        </div>
+
+    </div>
+
+    <script>
+        // questo serve per verificare che l'autenticazione sia avvenuta e soprattutto sia corretta
+        if(!localStorage.getItem('authenticated')) {
+            window.location.href = 'index.html';
+        }
+
+        function logout() {
+            localStorage.removeItem('authenticated');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+<div class="nv-logo">
+    <div class="n"></div>
+    <div class="v"></div>
+</div>
+
+</body>
+</html>
+
+<!--nik-->

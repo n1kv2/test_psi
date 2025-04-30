@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stroop Test Moderno</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <div class="container">
+        <div id="timer" class="timer">0s</div>
+
+        <!-- Schermata iniziale -->
+        <div id="part0" class="section active">
+            <h1 class="title">Stroop Test</h1>
+            <div class="description">
+                <p>Questo test si compone di 3 parti:</p>
+                <ol>
+                    <li>Leggere parole di colori scritte in nero</li>
+                    <li>Identificare il colore di pallini</li>
+                    <li>Dire il colore usato per parole che indicano colori diversi</li>
+                </ol>
+                <p>Ogni parte ha 30 elementi. Non c'è un tempo massimo </p>
+            </div>
+            <div class="input-group">
+                <input type="number" id="subjectNumber" class="input" placeholder="Numero soggetto" required>
+                <button onclick="StroopTest.startTest()" class="btn primary">Inizia Test</button>
+            </div>
+        </div>
+
+        <!-- Parte 1: Lettura parole -->
+        <div id="part1" class="section">
+            <h2 class="section-title">Parte 1 - Leggi le parole</h2>
+            <div id="words1" class="words-container"></div>
+            <button onclick="StroopTest.nextPart(2)" class="btn primary">Avanti</button>
+    
+        </div>
+
+        <!-- Parte 2: Colori pallini -->
+        <div id="part2" class="section">
+            <h2 class="section-title">Parte 2 - Colori dei pallini</h2>
+            <div id="dots" class="dots-container"></div>
+            <button onclick="StroopTest.nextPart(3)" class="btn primary">Avanti</button>
+        </div>
+
+        <!-- Parte 3: Colori testo -->
+        <div id="part3" class="section">
+            <h2 class="section-title">Parte 3 - Colori delle scritte</h2>
+            <div id="words3" class="words-container"></div>
+            <button onclick="StroopTest.endTest()" class="btn primary">Termina</button>
+        </div>
+
+        <!-- Risultati finali -->
+<div id="results" class="section">
+    <h2 class="section-title">Risultati</h2>
+    <div id="resultsContent" class="results-content">
+        <div class="subject-id">Soggetto: <span id="subjectId"></span></div>
+        
+        <div class="error-table">
+            <table>
+                <tr>
+                    <th>Parte</th>
+                    <th>Tempo</th>
+                    <th>Errori</th>
+                </tr>
+                <tr>
+                    <td>Parte 1</td>
+                    <td>${times.t1}s</td>
+                    <td><input type="number" id="error1" min="0" value="0" class="error-input"></td>
+                </tr>
+                <tr>
+                    <td>Parte 2</td>
+                    <td>${times.t2}s</td>
+                    <td><input type="number" id="error2" min="0" value="0" class="error-input"></td>
+                </tr>
+                <tr>
+                    <td>Parte 3</td>
+                    <td>${times.t3}s</td>
+                    <td><input type="number" id="error3" min="0" value="0" class="error-input"></td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="final-results">
+            <h3>Risultato Finale</h3>
+            <p>Tempo: <span id="finalTime">0.0</span></p>
+            <p>Errori: <span id="finalErrors">0.0</span></p>
+        </div>
+    </div>
+    <button onclick="StroopTest.resetTest()" class="btn secondary">Torna alla Home</button>
+</div>
+
+        <!-- Pulsanti controllo -->
+        <div class="controls">
+            <button onclick="StroopTest.toggleCheatSheet()" class="btn icon"> 
+                <span class="material-icons">RT</span>
+            </button>
+        </div>
+
+        <!-- Soluzioni -->
+        <div id="cheatSheet" class="cheat-sheet">
+            <div class="cheat-content">
+                <h3>Soluzioni</h3>
+                <div id="cheatContent"></div>
+                <button onclick="toggleCheatSheet()" class="btn small">Chiudi</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script4.js"></script>
+</body>
+</html>

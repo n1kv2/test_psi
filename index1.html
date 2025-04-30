@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digit Span Test</title>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Digit Span Test</h1>
+       
+        <div id="introSection">
+            
+            <div class="sottotitolo" style="text-align: center;"> 
+                <p>Questo test valuta la tua memoria a breve termine attraverso la ripetizione di sequenze numeriche.</p>
+            </div>
+            
+            <h2>Come funziona</h2>
+            <p>Il test procederà nel seguente modo:</p>
+            <ul>
+                <li>Una voce pronuncerà una sequenza di numeri</li>
+                <li>Dovrai ripetere la sequenza nello stesso ordine</li>
+                <li>Le sequenze iniziano con 3 cifre e aumentano gradualmente</li>
+                <li>Per ogni lunghezza, avrai 2 tentativi</li>
+                <li>Se sbagli entrambi i tentativi, il test termina</li>
+            </ul>
+            
+            <div id="voiceTestSection">
+                <h2>Preparazione</h2>
+                <p>Per ottenere risultati accurati:</p>
+                <ul>
+                    <li>Assicurati di essere in un ambiente silenzioso</li>
+                    <li>Regola il volume a un livello confortevole</li>
+                    <li>Verifica che la sintesi vocale funzioni correttamente</li>
+                </ul>
+                
+                <button id="testVoiceBtn">Prova la voce</button>
+                <p id="voiceTestResult"></p>
+            </div>
+            
+            <button id="startBtn" class="hidden">Inizia il test</button>
+        </div>
+        
+        <div id="testContainer" class="hidden">
+            <div class="info-container">
+                <div class="info-box">
+                    <div class="info-label">LIVELLO</div>
+                    <div class="info-value" id="currentLevel">1</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">LUNGHEZZA</div>
+                    <div class="info-value" id="currentLengthValue">3</div>
+                </div>
+                <div class="info-box">
+                    <div class="info-label">TENTATIVO</div>
+                    <div class="info-value" id="currentAttemptValue">1</div>
+                </div>
+            </div>
+            
+            <div id="testSection">
+                <p>Preparati ad ascoltare la sequenza...</p>
+            </div>
+            
+            <div id="inputSection" class="hidden">
+                <input type="text" id="userInput" placeholder="Inserisci i numeri" maxlength="12">
+                <button id="submitBtn">Invia</button>
+            </div>
+            
+            <div id="result"></div>
+        </div>
+        
+        <div id="finalResult" class="hidden">
+            <h3>Risultato finale:</h3>
+            <p id="finalScore"></p>
+            <button id="restartBtn">Ricomincia</button>
+        </div>
+    </div>
+
+    <script src="script1.js"></script>
+</body>
+</html>
+
+<!--nik-->

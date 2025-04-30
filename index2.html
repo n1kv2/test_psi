@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torre di Londra</title>
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <div id="app">
+        <!-- schermata iniziale di introduzione-->
+        <div id="intro-screen" class="screen active">
+            <h1>Torre di Londra - TOL</h1>
+
+        <div class="sottotitolo" style="text-align: center;"> 
+            <p> Questo test valuta le funzioni esecutive, in particolare pianificazione e problem solving.</p>
+    
+        </div>
+            
+            <div class="instructions" >
+                <p><strong>ISTRUZIONI:</strong></p>
+                <ol>
+                    <li>Inserisci il codice soggetto</li>
+                    <li>Riproduci la configurazione raffigurata rispettando il numero di mosse disponibili</li>
+                  
+                    <div class="secondText"> 
+                    <p><strong>REGOLE:</strong></p>
+                    <ul>
+                        <li>Muovi una pallina alla volta</li>
+                        <li>Prendi solo la pallina in cima</li>
+                        <li>Torre sinistra: max 3 palline</li>
+                        <li>Torre centrale: max 2 palline</li>
+                        <li>Torre destra: max 1 pallina</li>
+                    </ul>
+
+                  </div>
+                
+                </ol>
+                <input type="number" id="subject-id" class="subject-id-input" placeholder="Codice soggetto" min="1">
+            </div>
+            <button id="start-btn" class="btn">Inizia il Test</button>
+        </div>
+
+        <!-- schermata principale del test -->
+        <div id="test-screen" class="screen">
+            <div class="header">
+                <div>Item: <span id="task-number">1</span>/16</div>
+                <div>Tentativo: <span id="attempt-number">1</span>/3</div>
+                <div>Mosse: <span id="move-counter">0</span></div>
+                <div>Violazioni: <span id="violation-counter">0</span></div>
+            </div>
+
+            <div class="timer-container">
+                <div class="timer-box">
+                    <div class="timer-label">Tempo totale</div>
+                    <div class="timer-value" id="total-timer">0</div>
+                </div>
+                <div class="timer-box">
+                    <div class="timer-label">Tempo di esecuzione</div>
+                    <div class="timer-value" id="exec-timer">0</div>
+                </div>
+            </div>
+
+
+            <div class="goal-image">
+                <h3>Configurazione Obiettivo</h3>
+                <div id="goal-image-container" class="goal-configuration"></div>
+            </div>
+
+            <div class="game-container">
+                <h3>La tua configurazione</h3>
+
+            <h4>
+
+                <div id="task-instruction" class="task-instruction"></div>
+            </h4>
+
+                <div class="towers-container">
+                    <div class="tower large" id="tower-0"></div>
+                    <div class="tower medium" id="tower-1"></div>
+                    <div class="tower small" id="tower-2"></div>
+                </div>
+            </div>
+
+            <div id="completion-message" class="completion-message">
+                Item completato correttamente!
+            </div>
+
+            <button id="next-btn" class="btn" style="display: none;">Prossimo item</button>
+            <button id="reset-btn" class="btn">Riprova</button>
+        </div>
+
+        <!-- schermata dei risultati -->
+        <div id="results-screen" class="screen">
+            <h1>Risultati</h1>
+            <div id="results-table"></div>
+            <button id="restart-btn" class="btn">Nuovo Test</button>
+        </div>
+    </div>
+
+    <script src="script2.js"></script>
+</body>
+</html>
+
+<!-- di nik -->
