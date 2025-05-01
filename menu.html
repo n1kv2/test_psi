@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Selezione Test</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -49,69 +50,63 @@
             cursor: pointer;
         }
 
-        .nv-logo {
+        .nv-signature {
         position: fixed;
         bottom: 20px;
         left: 20px;
-        opacity: 0.3;
+        opacity: 0.2;
         transition: opacity 0.3s;
-        width: 40px;
-        height: 40px;
+        font-family: 'Arial', sans-serif;
+        font-weight: 600;
+        font-size: 24px;
+        color: #1877f2;
+        display: flex;
+        gap: 2px;
+        cursor: default;
+        }   
+
+      .nv-signature:hover {
+        opacity: 0.4;
+        color: #0b0d8f;
+        transform: translateY(-2px);
+        }
+
+        .info-popup {
+        position: fixed;
+        bottom: 70px;
+        left: 20px;
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        width: 250px;
+        display: none;
+        z-index: 100;
     }
 
-    .nv-logo:hover {
-        opacity: 0.6;
+    .info-popup p {
+        margin-bottom: 15px;
+        line-height: 1.4;
     }
 
-    .nv-logo .n {
-        position: absolute;
-        width: 2px;
-        height: 100%;
-        background: #1877f2;
-        left: 0;
+    .close-btn {
+        background-color: #1877f2;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
     }
 
-    .nv-logo .n::after {
-        content: '';
-        position: absolute;
-        width: 2px;
-        height: 100%;
-        background: #1877f2;
-        left: 16px;
+    .close-btn:hover {
+        background-color: #0b0d8f;
     }
-
-    .nv-logo .n::before {
-        content: '';
-        position: absolute;
-        width: 2px;
-        height: 14px;
-        background: #1877f2;
-        left: 8px;
-        top: 0;
-        transform: rotate(45deg);
-    }
-
-    .nv-logo .v {
-        position: absolute;
-        width: 2px;
-        height: 100%;
-        background: #1877f2;
-        left: 24px;
-        transform: rotate(26deg);
-    }
-
-    .nv-logo .v::after {
-        content: '';
-        position: absolute;
-        width: 2px;
-        height: 100%;
-        background: #1877f2;
-        transform: rotate(-52deg);
-        right: 0;
-    }
-        
+  
     </style>
+
 </head>
+
 <body>
     <div class="header">
         <h1>Seleziona Test</h1>
@@ -142,6 +137,7 @@
     </div>
 
     <script>
+
         // questo serve per verificare che l'autenticazione sia avvenuta e soprattutto sia corretta
         if(!localStorage.getItem('authenticated')) {
             window.location.href = 'index.html';
@@ -151,12 +147,26 @@
             localStorage.removeItem('authenticated');
             window.location.href = 'index.html';
         }
-    </script>
 
-<div class="nv-logo">
-    <div class="n"></div>
-    <div class="v"></div>
-</div>
+        function togglePopup() {
+            const popup = document.getElementById('infoPopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+    
+        function closePopup() {
+            document.getElementById('infoPopup').style.display = 'none';
+        }
+    </script>
+    
+    <div class="nv-signature" onclick="togglePopup()">
+        <div class="N">n.</div>
+        <div class="V">v.</div>
+    </div>
+    
+    <div class="info-popup" id="infoPopup">
+        <p>Progetto di Nicholas Vigo<br>Ideato per <b>semplificare</b> e <br> restituire <b>tempo</b> prezioso <br> © 2025</p>
+        <button class="close-btn" onclick="closePopup()">Chiudi</button>
+    </div>
 
 </body>
 </html>
