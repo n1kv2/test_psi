@@ -43,7 +43,7 @@ const restartBtn = document.getElementById('restartBtn');
 testVoiceBtn.addEventListener('click', () => {
     const utterance = new SpeechSynthesisUtterance("Questa è una prova della voce. Se mi senti, clicca 'Inizia il test'.");
     utterance.lang = 'it-IT';
-    utterance.rate = 0.7;
+    utterance.rate = 1.0;
    
     //forzatura di accesso nel caso la voce si sentisse senza dare avvio
     const fallbackTimeout = setTimeout(() => {
