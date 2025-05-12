@@ -1,3 +1,5 @@
+//manca l'autenticazione. 
+
 const StroopTest = (() => {
     const colors = ['blu', 'rosso', 'verde'];
     const colorMap = {
